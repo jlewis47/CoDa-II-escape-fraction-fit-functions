@@ -9,7 +9,7 @@ def nbr_avg_fit_fesc_z10(Ms):
     escape fraction at z=10.1
     """
     
-    assert np.any([Ms<1e12,Ms>1e8]), "Found masses outside of [1e8,1e12] solar mass range!"
+    assert np.all([Ms<1e12,Ms>1e8]), "Found masses outside of [1e8,1e12] solar mass range!"
     
     slope=(np.log10(0.77)-np.log10(0.1))/(np.log10(1)-np.log10(1000))
     return(0.77*(Ms/1e8)**(slope))
@@ -29,7 +29,7 @@ def nbr_avg_fit_fesc(Ms,Zs):
     assert Zs>=6, "Redshift too low! Minimum of z=6."
     assert Zs<=14.9, "Redshift too high! Maximum of z=14.9"
     
-    assert np.any([Ms<1e12,Ms>1e8]), "Found masses outside of [1e8,1e12] solar mass range!"
+    assert np.all([Ms<1e12,Ms>1e8]), "Found masses outside of [1e8,1e12] solar mass range!"
              
     z10=nbr_avg_fit_fesc_z10(Ms)
     
@@ -63,7 +63,7 @@ def SFR_avg_fit_fesc(Ms,Zs):
     assert Zs>=6, "Redshift too low! Minimum of z=6."
     assert Zs<=14.9, "Redshift too high! Maximum of z=14.9"
     
-    assert np.any([Ms<1e12,Ms>1e8]), "Found masses outside of [1e8,1e12] solar mass range!"
+    assert np.all([Ms<1e12,Ms>1e8]), "Found masses outside of [1e8,1e12] solar mass range!"
     
     fesc_max0,fesc_knee0,delta,beta,gamma=[1.0,0.65,-0.75,-0.5,-2.5] 
     
